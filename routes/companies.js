@@ -11,6 +11,7 @@ app.use(express.json());
 //RETURNS LIST OF COMPANIES
 route.get("/companies", async (req, res, next) => {
     try{
+        const code = req.params.code;
         const results = await db.query(
             `SELECT code, name, description
             FROM companies`
